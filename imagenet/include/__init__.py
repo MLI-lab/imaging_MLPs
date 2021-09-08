@@ -12,3 +12,6 @@ from .mixer_mini128 import *
 from .mixer_shared128 import *
 
 from .mixer_new64T import *
+
+from .mixer_parallel import *
+from .mixer_series import *
