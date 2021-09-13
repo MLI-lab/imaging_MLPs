@@ -15,3 +15,15 @@ from .mixer_new64T import *
 
 from .mixer_parallel import *
 from .mixer_series import *
+
+from .mixer_sin import *
+
+from .unet_21 import *
+from .unet_18 import *
+from .unet_15 import *
+
+from .mixer_analysis import *
+
+from .mixer_p1 import *
+from .mixer_p2 import *
+from .mixer_p8 import *
