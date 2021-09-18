@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
-#import torch.nn.functional as F
+import torch.nn.functional as F
 from torch.nn import init
 import torch.nn.init as init
-#import numpy as np
+import numpy as np
 
 import einops
 from einops.layers.torch import Rearrange
@@ -34,10 +34,10 @@ class PatchEmbeddings(nn.Module):
     
 
 class FinalPatchExpand(nn.Module):
-    def __init__(self, channel_dim, img_channels, dim_scale=4, norm_layer=nn.LayerNorm):
+    def __init__(self, dim_scale, channel_dim, img_channels, norm_layer=nn.LayerNorm):
         super().__init__()
         self.dim_scale = dim_scale
-        self.expand = nn.Linear(channel_dim, 16* channel_dim, bias=False)
+        self.expand = nn.Linear(channel_dim, dim_scale**2* channel_dim, bias=False)
         self.output_dim = channel_dim 
         self.norm = norm_layer(channel_dim)
         self.output = nn.Conv2d(in_channels=channel_dim,out_channels=img_channels ,kernel_size=1,bias=False)
@@ -86,14 +86,14 @@ class Mixer(nn.Module):
         self.token_mixing = nn.Sequential(
             nn.LayerNorm(num_channels),
             Rearrange("b h w c -> b c w h"),
-            MLPBlock(num_patches, num_patches*4),
+            MLPBlock(num_patches, num_patches),
             Rearrange("b c w h -> b c h w"),
-            MLPBlock(num_patches, num_patches*4),
+            MLPBlock(num_patches, num_patches),
             Rearrange("b c h w -> b h w c"),
         )
         self.channel_mixing = nn.Sequential(
             nn.LayerNorm(num_channels),
-            MLPBlock(num_channels, num_channels*4)
+            MLPBlock(num_channels, num_channels)
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -102,41 +102,44 @@ class Mixer(nn.Module):
         return x
 
 
-class Unet_Mixer_new128(nn.Module):
+class Unet_Mixer_p1(nn.Module):
 
     def __init__(
         self,
         img_size: int = 256,
-        img_channels: int = 3,
-        patch_size: int = 4,
-        embed_dim: int = 128,     
+        img_channels: int = 1,
+        patch_size: int = 1,
+        embed_dim: int = 107,     
     ):    
         super().__init__()
         
         #mixer blocks
-        self.mixer1= Mixer( img_size//4, embed_dim)
-        self.mixer2= Mixer( img_size//4, embed_dim)
-        self.mixer3= Mixer( img_size//4, embed_dim)
-        self.mixer4= Mixer( img_size//4, embed_dim)
+        self.mixer1= Mixer( img_size//patch_size, embed_dim)
+        self.mixer2= Mixer( img_size//patch_size, embed_dim)
+        self.mixer3= Mixer( img_size//patch_size, embed_dim)
+        self.mixer4= Mixer( img_size//patch_size, embed_dim)
         
-        self.mixer5= Mixer( img_size//4, embed_dim)
-        self.mixer6= Mixer( img_size//4, embed_dim)
-        self.mixer7= Mixer( img_size//4, embed_dim)
-        self.mixer8= Mixer( img_size//4, embed_dim)
+        self.mixer5= Mixer( img_size//patch_size, embed_dim)
+        self.mixer6= Mixer( img_size//patch_size, embed_dim)
+        self.mixer7= Mixer( img_size//patch_size, embed_dim)
+        self.mixer8= Mixer( img_size//patch_size, embed_dim)
         
-        self.mixer9 = Mixer( img_size//4, embed_dim)
-        self.mixer10= Mixer( img_size//4, embed_dim)
-        self.mixer11= Mixer( img_size//4, embed_dim)
-        self.mixer12= Mixer( img_size//4, embed_dim)
+        self.mixer9 = Mixer( img_size//patch_size, embed_dim)
+        self.mixer10= Mixer( img_size//patch_size, embed_dim)
+        self.mixer11= Mixer( img_size//patch_size, embed_dim)
+        self.mixer12= Mixer( img_size//patch_size, embed_dim)
         
-        self.mixer13= Mixer( img_size//4, embed_dim)
-        self.mixer14= Mixer( img_size//4, embed_dim)
-        self.mixer15= Mixer( img_size//4, embed_dim)
-        self.mixer16= Mixer( img_size//4, embed_dim)
+        #self.mixer13 = Mixer( img_size//patch_size, embed_dim)
+        #self.mixer14= Mixer( img_size//patch_size, embed_dim)
+        #self.mixer15= Mixer( img_size//patch_size, embed_dim)
+        #self.mixer16= Mixer( img_size//patch_size, embed_dim)
         
-
+        
+        
+        #encode
         self.patch_embed = PatchEmbeddings(patch_size, embed_dim, img_channels)
-        self.final_expand = FinalPatchExpand(embed_dim, img_channels)
+
+        self.final_expand = FinalPatchExpand(patch_size, embed_dim, img_channels)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
                 
@@ -146,21 +149,18 @@ class Unet_Mixer_new128(nn.Module):
         x = self.mixer2(x)
         x = self.mixer3(x)
         x = self.mixer4(x)
-
         x = self.mixer5(x)
         x = self.mixer6(x)
         x = self.mixer7(x)
         x = self.mixer8(x)
-
         x = self.mixer9(x)
         x = self.mixer10(x)
         x = self.mixer11(x)
         x = self.mixer12(x)
-
-        x = self.mixer13(x)
-        x = self.mixer14(x)
-        x = self.mixer15(x)
-        x = self.mixer16(x)
-
+        #x = self.mixer13(x)
+        #x = self.mixer14(x)
+        #x = self.mixer15(x)
+        #x = self.mixer16(x)
+        
         x = self.final_expand(x)
         return x        

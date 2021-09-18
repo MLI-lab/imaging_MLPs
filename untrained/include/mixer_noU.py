@@ -107,7 +107,7 @@ class Unet_Mixer_noU(nn.Module):
     def __init__(
         self,
         img_size: int = 256,
-        img_channels: int = 3,
+        img_channels: int = 1,
         patch_size: int = 4,
         embed_dim: int = 128,     
     ):    
