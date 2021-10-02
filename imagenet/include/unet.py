@@ -22,7 +22,7 @@ class Unet(nn.Module):
         self,
         in_chans: int = 3,
         out_chans: int = 3,
-        chans: int = 32,
+        chans: int = 30,
         num_pool_layers: int = 4,
         drop_prob: float = 0.0,
     ):
