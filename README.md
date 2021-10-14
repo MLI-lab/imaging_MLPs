@@ -21,6 +21,11 @@ The code is written entirely in python and relies mainly on Pytorch. It has been
 * Jupyter Notebook: 6.3.0
 * Numpy: 1.19.2
 * Matplotlib: 3.3.4
+* PIL: 7.2.0
+* Skimage: 0.18.1
+* BM3D: 3.0.9
+* Einops: 0.3.0
+* (add more for vit)
 
 ## Usage
 
