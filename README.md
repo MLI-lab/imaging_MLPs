@@ -25,7 +25,7 @@ The code is written entirely in python and relies mainly on Pytorch. It has been
 * Skimage: 0.18.1
 * BM3D: 3.0.9
 * Einops: 0.3.0
-* (add more for vit)
+* (add more for vit and cs)
 
 ## Usage
 
@@ -52,3 +52,4 @@ Thank you for making your code publicly accessible.
 (add citation to the paper later)
 
 ## License
+This repository is [MIT](LICENSE) licensed.
