@@ -25,7 +25,9 @@ The code is written entirely in python and relies mainly on Pytorch. It has been
 * Skimage: 0.18.1
 * BM3D: 3.0.9
 * Einops: 0.3.0
-* (add more for vit and cs)
+* timm==0.3.2
+* runstats==2.0.0
+* h5py==2.10.0
 
 ## Usage
 
@@ -38,7 +40,8 @@ The folders "ImageNet" and "SIDD" contain the denoising experiments. In the file
 The code to replicate the figures from the inductive bias section is in the folder "untrained". The car image used in these experiments is included in the folder. 
 
 ### Compressive Sensing: 
-(add details here)
+
+The code to replicate the results from the compressive sensing section is in the folder "compressed_sensing". Before running the notebook "training_and_validation.ipynb", please adjust the data path and select the model.
 
 ## Acknowledgements
 * The U-Net implementation is obtained from the [fastMRI repository](https://github.com/facebookresearch/fastMRI/tree/master/fastmri/models).
