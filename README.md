@@ -25,9 +25,9 @@ The code is written entirely in python and relies mainly on Pytorch. It has been
 * Skimage: 0.18.1
 * BM3D: 3.0.9
 * Einops: 0.3.0
-* timm==0.3.2
-* runstats==2.0.0
-* h5py==2.10.0
+* timm: 0.3.2
+* runstats: 2.0.0
+* h5py: 2.10.0
 
 ## Usage
 
@@ -47,7 +47,7 @@ The code to replicate the results from the compressive sensing section is in the
 * The U-Net implementation is obtained from the [fastMRI repository](https://github.com/facebookresearch/fastMRI/tree/master/fastmri/models).
 * Our implementation of patch merging and expanding is adapted from [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) and [Swin-Unet](https://github.com/HuCaoFighting/Swin-Unet).
 * A Pytorch implementation of the original [MLP-Mixer paper](https://arxiv.org/abs/2105.01601) can be found [here](https://github.com/isaaccorley/mlp-mixer-pytorch).
-* (if there are any acknowledgments regarding vit or cs)
+* Our implementation of the Vision Transformer is adapted from [ConViT](https://github.com/facebookresearch/convit)
 
 Thank you for making your code publicly accessible.
 
