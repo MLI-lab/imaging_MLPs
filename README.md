@@ -44,7 +44,7 @@ The code to replicate the figures from the inductive bias section is in the fold
 The code to replicate the results from the compressive sensing section is in the folder "compressed_sensing". Before running the notebook "training_and_validation.ipynb", please adjust the data path and select the model.
 
 ## Acknowledgements
-* The U-Net implementation is obtained from the [fastMRI repository](https://github.com/facebookresearch/fastMRI/tree/master/fastmri/models).
+* The U-Net implementation and the fastmri library are obtained from the [fastMRI repository](https://github.com/facebookresearch/fastMRI).
 * Our implementation of patch merging and expanding is adapted from [Swin-Transformer](https://github.com/microsoft/Swin-Transformer) and [Swin-Unet](https://github.com/HuCaoFighting/Swin-Unet).
 * A Pytorch implementation of the original [MLP-Mixer paper](https://arxiv.org/abs/2105.01601) can be found [here](https://github.com/isaaccorley/mlp-mixer-pytorch).
 * Our implementation of the Vision Transformer is adapted from [ConViT](https://github.com/facebookresearch/convit)
