@@ -28,6 +28,7 @@ The code is written entirely in python and relies mainly on Pytorch. It has been
 * timm: 0.3.2
 * runstats: 2.0.0
 * h5py: 2.10.0
+* tqdm: 4.46.0
 
 ## Usage
 
@@ -41,7 +42,7 @@ The code to replicate the figures from the inductive bias section is in the fold
 
 ### Compressive Sensing: 
 
-The code to replicate the results from the compressive sensing section is in the folder "compressed_sensing". Before running the notebook "training_and_validation.ipynb", please adjust the data path and select the model.
+The code to replicate the results from the compressive sensing section is in the folder "compressed_sensing". Before running the notebook "training_and_validation.ipynb", please adjust the data path, training data size, and select the model.
 
 ## Acknowledgements
 * The U-Net implementation and the fastmri library are obtained from the [fastMRI repository](https://github.com/facebookresearch/fastMRI).
