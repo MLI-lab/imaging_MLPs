@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 from math import ceil, floor
-from fastmri.models import Unet
+from .unet import Unet
 from .vision_transformer import VisionTransformer
 
 class ReconNet(nn.Module):
