@@ -53,7 +53,17 @@ The code to replicate the results from the compressive sensing section is in the
 Thank you for making your code publicly accessible.
 
 ## Citation
-(add citation to the paper later)
+
+@misc{https://doi.org/10.48550/arxiv.2202.02018,
+  doi = {10.48550/ARXIV.2202.02018}
+  url = {https://arxiv.org/abs/2202.02018},
+  author = {Mansour, Youssef and Lin, Kang and Heckel, Reinhard},
+  title = {Image-to-Image MLP-mixer for Image Reconstruction},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {Creative Commons Attribution 4.0 International}
+}
+
 
 ## License
 This repository is [MIT](LICENSE) licensed.
