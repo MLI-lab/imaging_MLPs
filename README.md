@@ -54,14 +54,13 @@ Thank you for making your code publicly accessible.
 
 ## Citation
 
-@misc{https://doi.org/10.48550/arxiv.2202.02018,
-  doi = {10.48550/ARXIV.2202.02018}
-  url = {https://arxiv.org/abs/2202.02018},
-  author = {Mansour, Youssef and Lin, Kang and Heckel, Reinhard},
-  title = {Image-to-Image MLP-mixer for Image Reconstruction},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {Creative Commons Attribution 4.0 International}
+@misc{mansourMLPMixer, <br />
+  url = {https://arxiv.org/abs/2202.02018}, <br />
+  author = {Mansour, Youssef and Lin, Kang and Heckel, Reinhard}, <br />
+  title = {Image-to-Image MLP-mixer for Image Reconstruction}, <br />
+  publisher = {arXiv}, <br />
+  year = {2022}, <br />
+  copyright = {Creative Commons Attribution 4.0 International}<br />
 }
 
 
