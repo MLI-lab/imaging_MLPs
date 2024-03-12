@@ -53,12 +53,15 @@ The code to replicate the results from the compressive sensing section is in the
 Thank you for making your code publicly accessible.
 
 ## Citation
-@misc{mansour2022imagetoimage,
-      title={Image-to-Image MLP-mixer for Image Reconstruction}, 
-      author={Youssef Mansour and Kang Lin and Reinhard Heckel},
+
+@misc{
+
+      mansour2022imagetoimage,
+      title={Image-to-Image MLP-mixer for Image Reconstruction},   
+      author={Youssef Mansour and Kang Lin and Reinhard Heckel}, 
       year={2022},
       eprint={2202.02018},
-      archivePrefix={arXiv},
+      archivePrefix={arXiv}, 
       primaryClass={cs.CV}
 }
 
