@@ -1,6 +1,6 @@
 # Image-to-Image Mixer for Image Reconstruction
 
-This repository containes the code to reproduce the results and figures of the paper: Image-to-Image MLP-mixer for Image Reconstruction (add paper link later). 
+This repository containes the code to reproduce the results and figures of the paper: [Image-to-Image MLP-mixer for Image Reconstruction](https://arxiv.org/abs/2202.02018). 
 
 ## Data Sets 
 
@@ -53,14 +53,13 @@ The code to replicate the results from the compressive sensing section is in the
 Thank you for making your code publicly accessible.
 
 ## Citation
-
-@misc{mansourMLPMixer, <br />
-  url = {https://arxiv.org/abs/2202.02018}, <br />
-  author = {Mansour, Youssef and Lin, Kang and Heckel, Reinhard}, <br />
-  title = {Image-to-Image MLP-mixer for Image Reconstruction}, <br />
-  publisher = {arXiv}, <br />
-  year = {2022}, <br />
-  copyright = {Creative Commons Attribution 4.0 International}<br />
+@misc{mansour2022imagetoimage,
+      title={Image-to-Image MLP-mixer for Image Reconstruction}, 
+      author={Youssef Mansour and Kang Lin and Reinhard Heckel},
+      year={2022},
+      eprint={2202.02018},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 
 
